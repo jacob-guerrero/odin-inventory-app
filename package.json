@@ -1,0 +1,26 @@
+{
+  "name": "odin-inventory-app",
+  "version": "1.0.0",
+  "description": "This is a project with the aim of make an inventory for a plant nursery establishment. It uses CRUD principles with postgresql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacob-guerrero/odin-inventory-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacob-guerrero/odin-inventory-app/issues"
+  },
+  "homepage": "https://github.com/jacob-guerrero/odin-inventory-app#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
+  }
+}
