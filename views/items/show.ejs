@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Item - <%= item.name %></title>
+  </head>
+
+  <body>
+    <h2><%= item.name %></h2>
+    <p>
+      <strong>Category:</strong>
+      <a href="/categories/<%= item.category_id %>">View Category</a>
+    </p>
+    <p><strong>Price:</strong> $<%= item.price %></p>
+    <p><strong>Stock Quantity:</strong> <%= item.stock_quantity %></p>
+    <p><strong>Description:</strong> <%= item.description %></p>
+
+    <a href="/items/edit/<%= item.id %>">Edit Item</a>
+    <form action="/items/delete/<%= item.id %>" method="POST">
+      <button type="submit" onclick="return confirm('Are you sure?')">
+        Delete
+      </button>
+    </form>
+  </body>
+</html>

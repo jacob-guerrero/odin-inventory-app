@@ -4,6 +4,7 @@ const app = express();
 
 /* Import Routes */
 const categoryRouter = require("./routes/categoryRouter");
+const itemRouter = require("./routes/itemRouter");
 
 /* Styles */
 const assetsPath = path.join(__dirname, "public");
@@ -21,6 +22,7 @@ const PORT = process.env.PORT || 3000;
 
 /* Routes */
 app.use("/categories", categoryRouter);
+app.use("/items", itemRouter);
 
 app.get("/", (req, res) => res.render("home"));
 

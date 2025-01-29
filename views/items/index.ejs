@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Items</title>
+  </head>
+
+  <body>
+    <%- include("../partials/header") %>
+
+    <h2>Items</h2>
+    <a href="/items/create">+ Add New Item</a>
+
+    <ul>
+      <% items.forEach(item => { %>
+      <li>
+        <a href="/items/<%= item.id %>"><%= item.name %></a>
+        - <a href="/items/edit/<%= item.id %>">Edit</a>
+        <form
+          action="/items/delete/<%= item.id %>"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit" onclick="return confirm('Are you sure?')">
+            Delete
+          </button>
+        </form>
+      </li>
+      <% }); %>
+    </ul>
+
+    <%- include("../partials/footer") %>
+  </body>
+</html>
