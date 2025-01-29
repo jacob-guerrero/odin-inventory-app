@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Category - Items</title>
+  </head>
+  <body>
+    <%- include("../partials/header") %>
+
+    <h2><%= category.name %></h2>
+    <p><%= category.description %></p>
+
+    <h3>Items in this Category:</h3>
+
+    <%if (items.length > 0) { %>
+    <ul>
+      <% items.forEach(item => { %>
+      <li>
+        <a href="/items/<%= item.id %>"><%= item.name %></a>
+      </li>
+      <% }); %>
+    </ul>
+    
+    <% } else { %>
+    <p>No items yet</p>
+    <% } %>
+
+    <a href="/categories/edit/<%= category.id %>">Edit Category</a>
+    <form action="/categories/delete/<%= category.id %>" method="POST">
+      <button type="submit" onclick="return confirm('Are you sure?')">
+        Delete
+      </button>
+    </form>
+
+    <%- include("../partials/footer") %>
+  </body>
+</html>
