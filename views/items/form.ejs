@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= item ? "Edit Item" : "Create Item" %></title>
+  </head>
+
+  <body>
+    <%- include("../partials/header") %>
+
+    <h2><%= item ? "Edit Item" : "Create Item" %></h2>
+
+    <form
+      action="<%= item ? '/items/edit/' + item.id : '/items/create' %>"
+      method="POST"
+    >
+      <label for="name">Item Name:</label>
+      <input
+        type="text"
+        name="name"
+        value="<%= item ? item.name : '' %>"
+        required
+      />
+
+      <label for="categoryId">Category:</label>
+      <select name="categoryId" required>
+        <% categories.forEach(category => { %>
+        <option value="<%= category.id %>"
+            <%= item && item.category_id === category.id ? "selected" : "" %>
+        >
+            <%= category.name %>
+        </option>
+        <% }); %>
+      </select>
+
+      <label for="price">Price:</label>
+      <input
+        type="number"
+        name="price"
+        step="0.01"
+        value="<%= item ? item.price : '' %>"
+        required
+      />
+
+      <label for="stockQuantity">Stock Quantity:</label>
+      <input
+        type="number"
+        name="stockQuantity"
+        value="<%= item ? item.stock_quantity : '' %>"
+        required
+      />
+
+      <label for="description">Description:</label>
+      <textarea name="description">
+        <%= item ? item.description : '' %></textarea
+      >
+
+      <button type="submit"><%= item ? "Update" : "Create" %></button>
+      <a href="/items/<%= item.id %>">Cancel</a>
+    </form>
+
+    <%- include("../partials/footer") %>
+  </body>
+</html>

@@ -14,14 +14,14 @@ const categoryRouter = Router();
 // GET all categories
 categoryRouter.get("/", getAllCategories);
 
-// GET category details (including items in the category)
-categoryRouter.get("/:id", getCategoryDetails);
-
 // GET form to create a new category
 categoryRouter.get("/create", createCategoryGet);
 
 // POST request to create a new category
 categoryRouter.post("/create", createCategoryPost);
+
+// GET category details (including items in the category)
+categoryRouter.get("/:id", getCategoryDetails);
 
 // GET form to update an existing category
 categoryRouter.get("/edit/:id", updateCategoryGet);

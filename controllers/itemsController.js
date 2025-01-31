@@ -14,7 +14,9 @@ async function getItemDetails(req, res) {
   const { id } = req.params;
   try {
     const item = await db.getItemById(id);
-    res.render("items/show", { item });
+    const categoryId = item.category_id;
+    const category = await db.getCategoryById(categoryId);
+    res.render("items/show", { item, category });
   } catch (err) {
     console.error("Error fetching item details:", err);
     res.status(500).send("Server Error");
@@ -23,7 +25,8 @@ async function getItemDetails(req, res) {
 
 async function createItemGet(req, res) {
   // Render the form to create a new item
-  res.render("items/form", { item: null });
+  const categories = await db.getAllCategories();
+  res.render("items/form", { item: null, categories });
 }
 
 async function createItemPost(req, res) {
@@ -41,7 +44,8 @@ async function updateItemGet(req, res) {
   const { id } = req.params;
   try {
     const item = await db.getItemById(id);
-    res.render("items/form", { item });
+    const categories = await db.getAllCategories();
+    res.render("items/form", { item, categories });
   } catch (err) {
     console.error("Error fetching item for editing:", err);
     res.status(500).send("Server Error");
@@ -52,7 +56,14 @@ async function updateItemPost(req, res) {
   const { id } = req.params;
   const { name, categoryId, price, stockQuantity, description } = req.body;
   try {
-    await db.updateItem(id, name, categoryId, price, stockQuantity, description);
+    await db.updateItem(
+      id,
+      name,
+      categoryId,
+      price,
+      stockQuantity,
+      description
+    );
     res.redirect("/items");
   } catch (err) {
     console.error("Error updating item:", err);
@@ -78,5 +89,5 @@ module.exports = {
   createItemPost,
   updateItemGet,
   updateItemPost,
-  deleteItem
+  deleteItem,
 };
