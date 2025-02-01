@@ -3,34 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />  
     <title><%= category ? "Edit Category" : "Create Category" %></title>
   </head>
 
   <body>
     <%- include("../partials/header") %>
 
-    <h2><%= category ? "Edit Category" : "Create Category" %></h2>
+    <main class="main-content">
+      <h2><%= category ? "Edit Category" : "Create Category" %></h2>
 
-    <form
-      action="<%= category ? '/categories/edit/' + category.id : '/categories/create' %>"
-      method="POST"
-    >
-      <label for="name">Category Name:</label>
-      <input
-        type="text"
-        name="name"
-        value="<%= category ? category.name : '' %>"
-        required
-      />
-
-      <label for="description">Description:</label>
-      <textarea name="description">
-        <%= category ? category.description : '' %></textarea
+      <form
+        action="<%= category ? '/categories/edit/' + category.id : '/categories/create' %>"
+        method="POST"
       >
+        <label for="name">Category Name:</label>
+        <input
+          type="text"
+          name="name"
+          value="<%= category ? category.name : '' %>"
+          required
+        />
 
-      <button type="submit"><%= category ? "Update" : "Create" %></button>
-      <a href="/categories">Cancel</a>
-    </form>
+        <label for="description">Description:</label>
+        <textarea name="description">
+          <%= category ? category.description : '' %></textarea
+        >
+
+        <button type="submit"><%= category ? "Update" : "Create" %></button>
+        <a href="/categories">Cancel</a>
+      </form>
+    </main>
 
     <%- include("../partials/footer") %>
   </body>

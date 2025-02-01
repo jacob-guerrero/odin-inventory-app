@@ -3,32 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Categories</title>
   </head>
 
   <body>
     <%- include("../partials/header") %>
 
-    <h2>Categories</h2>
-    <a href="/categories/create">+ Add New Category</a>
+    <main class="main-content">
+      <h2>Categories</h2>
+      <a href="/categories/create">+ Add New Category</a>
 
-    <ul>
-      <% categories.forEach(category => { %>
-      <li>
-        <a href="/categories/<%= category.id %>"><%= category.name %></a>
-        - <a href="/categories/edit/<%= category.id %>">Edit</a>
-        <form
-          action="/categories/delete/<%= category.id %>"
-          method="POST"
-          style="display: inline"
-        >
-          <button type="submit" onclick="return confirm('Are you sure?')">
-            Delete
-          </button>
-        </form>
-      </li>
-      <% }); %>
-    </ul>
+      <ul>
+        <% categories.forEach(category => { %>
+        <li>
+          <a href="/categories/<%= category.id %>"><%= category.name %></a>
+          - <a href="/categories/edit/<%= category.id %>">Edit</a>
+          <form
+            action="/categories/delete/<%= category.id %>"
+            method="POST"
+            style="display: inline"
+          >
+            <button type="submit" onclick="return confirm('Are you sure?')">
+              Delete
+            </button>
+          </form>
+        </li>
+        <% }); %>
+      </ul>
+    </main>
 
     <%- include("../partials/footer") %>
   </body>

@@ -3,28 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Item - <%= item.name %></title>
   </head>
 
   <body>
     <%- include("../partials/header") %>
 
-    <h2><%= item.name %></h2>
-    <p>
-      <strong>Category:</strong>
-      <%= category.name %>
-      <a href="/categories/<%= item.category_id %>">View More</a>
-    </p>
-    <p><strong>Price:</strong> $<%= item.price %></p>
-    <p><strong>Stock Quantity:</strong> <%= item.stock_quantity %></p>
-    <p><strong>Description:</strong> <%= item.description %></p>
+    <main class="main-content">
+      <h2><%= item.name %></h2>
+      <p>
+        <strong>Category:</strong>
+        <%= category.name %>
+        <a href="/categories/<%= item.category_id %>">View More</a>
+      </p>
+      <p><strong>Price:</strong> $<%= item.price %></p>
+      <p><strong>Stock Quantity:</strong> <%= item.stock_quantity %></p>
+      <p><strong>Description:</strong> <%= item.description %></p>
 
-    <a href="/items/edit/<%= item.id %>">Edit Item</a>
-    <form action="/items/delete/<%= item.id %>" method="POST">
-      <button type="submit" onclick="return confirm('Are you sure?')">
-        Delete
-      </button>
-    </form>
+      <a href="/items/edit/<%= item.id %>">Edit Item</a>
+      <form action="/items/delete/<%= item.id %>" method="POST">
+        <button type="submit" onclick="return confirm('Are you sure?')">
+          Delete
+        </button>
+      </form>
+    </main>
 
     <%- include("../partials/footer") %>
   </body>

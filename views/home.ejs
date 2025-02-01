@@ -3,15 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
     <title>Home</title>
   </head>
-  <body>
+  <body class="home-page">
+    <!-- Intro Section -->
     <%- include("./partials/header") %>
 
-    <h2>Welcome to the Plant Nursery Inventory</h2>
-    <p>Look for everything you need to know about plants.</p>
-    <a href="/categories">View Categories</a>
-    <a href="/items">View Items</a>
+    <div class="content">
+      <div class="intro">
+        <h1 class="intro-text animated">PLANTORY</h1>
+      </div>
+      <main class="main-content">
+        <h2>Welcome to your Plant Nursery Inventory</h2>
+        <p>Look for everything you need to know about plants.</p>
+        <div class="btn-container">
+          <a href="/categories" class="btn">View Categories</a>
+          <a href="/items" class="btn">View Items</a>
+        </div>
+      </main>
+    </div>
 
     <%- include("./partials/footer") %>
   </body>
