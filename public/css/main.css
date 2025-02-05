@@ -109,18 +109,8 @@ body {
 }
 
 .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #e74c3c;
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
   margin: 10px;
-}
-
-.btn:hover {
-  background-color: #c0392b;
+  padding: 12px 24px;
 }
 
 /* Animations */

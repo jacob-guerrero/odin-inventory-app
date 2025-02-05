@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/sections.css" />
+    <link rel="stylesheet" href="/css/gallery.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
     <title>Categories</title>
   </head>
 
@@ -15,7 +20,7 @@
       <h2 class="main-title">Categories</h2>
 
       <section class="text-container">
-        <a href="/categories/create">+ Add New Category</a>
+        <a href="/categories/create" class="btn">+ Add New Category</a>
 
         <ul class="list-container">
           <% categories.forEach(category => { %>
@@ -34,10 +39,105 @@
           </li>
           <% }); %>
         </ul>
+
+        <div class="cs-content">
+          <ul class="cs-card-group">
+            <li class="cs-item">
+              <span class="cs-date">
+                <span class="material-symbols-outlined"> potted_plant </span>
+              </span>
+              <div class="cs-info">
+                <h3 class="cs-h3" title="30% offer on all services">
+                  30% offer on all services
+                </h3>
+              </div>
+              <div class="btn-action-container">
+                <a href="" class="cs-button-solid" title="Edit"
+                  ><span class="material-symbols-outlined">
+                    edit_square
+                  </span></a
+                >
+                <a href="" class="cs-button-solid btn-delete" title="Delete"
+                  ><span class="material-symbols-outlined"> delete </span></a
+                >
+              </div>
+            </li>
+            
+            <li class="cs-item">
+              <span class="cs-date">
+                <span class="material-symbols-outlined"> park </span>
+              </span>
+              <div class="cs-info">
+                <h3 class="cs-h3" title="30% offer on all services">
+                  30% offer on all services
+                </h3>
+              </div>
+              <div class="btn-action-container">
+                <a href="" class="cs-button-solid" title="Edit"
+                  ><span class="material-symbols-outlined">
+                    edit_square
+                  </span></a
+                >
+                <a href="" class="cs-button-solid btn-delete" title="Delete"
+                  ><span class="material-symbols-outlined"> delete </span></a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
 
-      <aside class="img-container">
-        <img src="/images/bg1.jpg" alt="img" />
+      <aside class="img-container wrapper">
+        <div class="gallery">
+          <div class="gallery__item">
+            <img
+              class="gallery__asset lazyload"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="https://source.unsplash.com/500x500?building"
+              alt="building"
+            />
+          </div>
+          <div class="gallery__item">
+            <img
+              class="gallery__asset lazyload"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="https://source.unsplash.com/500x500?house"
+              alt="building"
+            />
+          </div>
+          <div class="gallery__item">
+            <img
+              class="gallery__asset lazyload"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="https://source.unsplash.com/500x500?interior"
+              alt="building"
+            />
+          </div>
+          <div class="gallery__item">
+            <img
+              class="gallery__asset lazyload"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="https://source.unsplash.com/500x500?business"
+              alt="building"
+            />
+          </div>
+          <div class="gallery__item">
+            <img
+              class="gallery__asset lazyload"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="https://source.unsplash.com/500x500?beauty"
+              alt="building"
+            />
+          </div>
+          <div class="gallery__item">
+            <img
+              class="gallery__asset lazyload"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="https://source.unsplash.com/500x500?apartment"
+              alt="building"
+            />
+          </div>
+        </div>
       </aside>
     </main>
 

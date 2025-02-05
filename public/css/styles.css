@@ -12,6 +12,8 @@
   --bg-color-light: #a7c957;
   --text-color: #f2e8cf;
   --red-color: #bc4749;
+  --red-color2: #e74c3c;
+  --red-color2-dark: #c0392b;
 }
 
 /* Body Styling */
@@ -98,15 +100,15 @@ header nav ul li a {
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 10px 15px;
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--red-color2);
+  color: var(--text-color);
   text-decoration: none;
+  font-weight: bold;
   border-radius: 5px;
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background-color: var(--red-color2-dark);
 }
 
 /* Footer */
