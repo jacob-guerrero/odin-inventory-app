@@ -14,6 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: clamp(1.8rem, 4vw, 3rem);
 }
 
 .text-container {
@@ -27,6 +28,11 @@
   overflow: auto;
 }
 
+.btn-add-text {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(0.5rem, 1.5vw, 1rem);
+}
+
 .btn-action-container {
   display: flex;
   width: 100%;
@@ -34,6 +40,14 @@
 }
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+.icon-default {
+  cursor: default;
+}
+.btn-delete-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 .btn {
   padding: 0.5rem 1rem;
@@ -56,6 +70,12 @@
   position: sticky;
   height: calc(100vh - 6.4rem - 6rem);
   top: 0;
+}
+.wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Cards */
@@ -97,6 +117,7 @@
   .cs-button-solid.btn-delete:hover {
     background-color: var(--red-color);
     color: var(--text-color);
+    cursor: pointer;
   }
   .cs-card-group {
     margin: 0;
@@ -195,11 +216,15 @@
 }
 /* Large Desktop -1300px */
 @media only screen and (min-width: 81.25rem) {
+  .main-content {
+    gap: 3rem;
+    padding: 3rem 0;
+  }
   .cs-container {
     max-width: 80rem;
   }
   .cs-content {
-    padding: 3rem 0;
+    padding: 1rem 0;
     align-self: center;
   }
 }

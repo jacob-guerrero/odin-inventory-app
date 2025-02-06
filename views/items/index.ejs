@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/galleryExpand.css" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/sections.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
     <title>Items</title>
   </head>
 
@@ -12,26 +17,28 @@
     <%- include("../partials/header") %>
 
     <main class="main-content">
-      <h2>Items</h2>
-      <a href="/items/create">+ Add New Item</a>
+      <h2 class="main-title">Items</h2>
 
-      <ul>
-        <% items.forEach(item => { %>
-        <li>
-          <a href="/items/<%= item.id %>"><%= item.name %></a>
-          - <a href="/items/edit/<%= item.id %>">Edit</a>
-          <form
-            action="/items/delete/<%= item.id %>"
-            method="POST"
-            style="display: inline"
-          >
-            <button type="submit" onclick="return confirm('Are you sure?')">
-              Delete
-            </button>
-          </form>
-        </li>
-        <% }); %>
-      </ul>
+      <section class="text-container">
+        <a href="/items/create" class="btn btn-add-text">+ Add New Item</a>
+
+        <ul>
+          <% items.forEach(item => { %>
+          <li>
+            <a href="/items/<%= item.id %>"><%= item.name %></a>
+            - <a href="/items/edit/<%= item.id %>">Edit</a>
+            <form
+              action="/items/delete/<%= item.id %>"
+              method="POST"
+              style="display: inline"
+            >
+              <button type="submit" onclick="return confirm('Are you sure?')">
+                Delete
+              </button>
+            </form>
+          </li>
+          <% }); %>
+        </ul>
     </main>
 
     <%- include("../partials/footer") %>

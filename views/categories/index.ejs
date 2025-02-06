@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/sections.css" />
-    <link rel="stylesheet" href="/css/gallery.css" />
+    <link rel="stylesheet" href="/css/galleryGrid.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
@@ -20,69 +20,57 @@
       <h2 class="main-title">Categories</h2>
 
       <section class="text-container">
-        <a href="/categories/create" class="btn">+ Add New Category</a>
-
-        <ul class="list-container">
-          <% categories.forEach(category => { %>
-          <li>
-            <a href="/categories/<%= category.id %>"><%= category.name %></a>
-            - <a href="/categories/edit/<%= category.id %>">Edit</a>
-            <form
-              action="/categories/delete/<%= category.id %>"
-              method="POST"
-              style="display: inline"
-            >
-              <button type="submit" onclick="return confirm('Are you sure?')">
-                Delete
-              </button>
-            </form>
-          </li>
-          <% }); %>
-        </ul>
+        <a href="/categories/create" class="btn btn-add-text"
+          >+ Add New Category</a
+        >
 
         <div class="cs-content">
           <ul class="cs-card-group">
+            <%categories.forEach(category => { %>
             <li class="cs-item">
               <span class="cs-date">
-                <span class="material-symbols-outlined"> potted_plant </span>
+                <span class="material-symbols-outlined icon-default">
+                  <%= category.name === "Indoor Plants" ? "potted_plant" :
+                  category.name === "Outdoor Plants" ? "park" : "grass" %>
+                </span>
               </span>
+
               <div class="cs-info">
-                <h3 class="cs-h3" title="30% offer on all services">
-                  30% offer on all services
-                </h3>
+                <a
+                  href="/categories/<%= category.id %>"
+                  class="cs-h3"
+                  title="<%= category.name %>"
+                  ><%= category.name %></a
+                >
               </div>
+
               <div class="btn-action-container">
-                <a href="" class="cs-button-solid" title="Edit"
+                <a
+                  href="/categories/edit/<%= category.id %>"
+                  class="cs-button-solid"
+                  title="Edit"
                   ><span class="material-symbols-outlined">
                     edit_square
                   </span></a
                 >
-                <a href="" class="cs-button-solid btn-delete" title="Delete"
-                  ><span class="material-symbols-outlined"> delete </span></a
+
+                <form
+                  action="/categories/delete/<%= category.id %>"
+                  method="POST"
+                  class="btn-delete-container"
                 >
+                  <button
+                    type="submit"
+                    onclick="return confirm('Are you sure?')"
+                    class="cs-button-solid btn-delete"
+                    title="Delete"
+                  >
+                    <span class="material-symbols-outlined"> delete </span>
+                  </button>
+                </form>
               </div>
             </li>
-            
-            <li class="cs-item">
-              <span class="cs-date">
-                <span class="material-symbols-outlined"> park </span>
-              </span>
-              <div class="cs-info">
-                <h3 class="cs-h3" title="30% offer on all services">
-                  30% offer on all services
-                </h3>
-              </div>
-              <div class="btn-action-container">
-                <a href="" class="cs-button-solid" title="Edit"
-                  ><span class="material-symbols-outlined">
-                    edit_square
-                  </span></a
-                >
-                <a href="" class="cs-button-solid btn-delete" title="Delete"
-                  ><span class="material-symbols-outlined"> delete </span></a
-                >
-              </div>
-            </li>
+            <% }); %>
           </ul>
         </div>
       </section>
