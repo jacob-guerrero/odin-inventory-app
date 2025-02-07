@@ -2,8 +2,9 @@ const db = require("../db/queries");
 
 async function getAllItems(req, res) {
   try {
+    const itemCategoryName = await db.getItemCategoryName();
     const items = await db.getAllItems();
-    res.render("items/index", { items });
+    res.render("items/index", { items, itemCategoryName });
   } catch (err) {
     console.error("Error fetching items:", err);
     res.status(500).send("Server Error");

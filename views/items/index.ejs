@@ -22,23 +22,83 @@
       <section class="text-container">
         <a href="/items/create" class="btn btn-add-text">+ Add New Item</a>
 
-        <ul>
-          <% items.forEach(item => { %>
-          <li>
-            <a href="/items/<%= item.id %>"><%= item.name %></a>
-            - <a href="/items/edit/<%= item.id %>">Edit</a>
-            <form
-              action="/items/delete/<%= item.id %>"
-              method="POST"
-              style="display: inline"
-            >
-              <button type="submit" onclick="return confirm('Are you sure?')">
-                Delete
-              </button>
-            </form>
-          </li>
-          <% }); %>
-        </ul>
+        <div class="cs-content">
+          <ul class="cs-card-group">
+            <% items.forEach((item, index) => { %>
+            <li class="cs-item">
+              <span class="cs-date">
+                <span class="material-symbols-outlined icon-default">
+                  <%= itemCategoryName[index].category_name === 
+                  "Indoor Plants" ? "potted_plant" : 
+                  itemCategoryName[index].category_name === 
+                  "Outdoor Plants" ? "park" : "grass" %>
+                </span>
+              </span>
+
+              <div class="cs-info">
+                <a
+                  href="/items/<%= item.id %>"
+                  class="cs-h3"
+                  title="<%= item.name %>"
+                  ><%= item.name %></a
+                >
+              </div>
+
+              <div class="btn-action-container">
+                <a
+                  href="/items/edit/<%= item.id %>"
+                  class="cs-button-solid"
+                  title="Edit"
+                  ><span class="material-symbols-outlined">
+                    edit_square
+                  </span></a
+                >
+
+                <form
+                  action="/items/delete/<%= item.id %>"
+                  method="POST"
+                  class="btn-delete-container"
+                >
+                  <button
+                    type="submit"
+                    onclick="return confirm('Are you sure?')"
+                    class="cs-button-solid btn-delete"
+                    title="Delete"
+                  >
+                    <span class="material-symbols-outlined"> delete </span>
+                  </button>
+                </form>
+              </div>
+            </li>
+            <% }); %>
+          </ul>
+        </div>
+      </section>
+
+      <aside class="img-container wrapper">
+        <div class="container">
+          <img
+            src="/"
+            alt=""
+          />
+          <img
+            src="/"
+            alt=""
+          />
+          <img
+            src="/"
+            alt=""
+          />
+          <img
+            src="/"
+            alt=""
+          />
+          <img
+            src="/"
+            alt=""
+          />
+        </div>
+      </aside>
     </main>
 
     <%- include("../partials/footer") %>

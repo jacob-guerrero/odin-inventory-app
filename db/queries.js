@@ -81,6 +81,14 @@ async function deleteItem(itemId) {
   await pool.query("DELETE FROM items WHERE id = $1;", [itemId]);
 }
 
+/* Joining items-categoryName */
+async function getItemCategoryName() {
+  const { rows } = await pool.query(
+    "SELECT items.id, items.name, categories.name AS category_name FROM items JOIN categories ON items.category_id = categories.id"
+  );
+  return rows;
+}
+
 module.exports = {
   getAllCategories,
   getCategoryById,
@@ -93,4 +101,5 @@ module.exports = {
   createItem,
   updateItem,
   deleteItem,
+  getItemCategoryName,
 };
