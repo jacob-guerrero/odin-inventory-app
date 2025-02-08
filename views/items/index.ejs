@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/galleryExpand.css" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/sections.css" />
+    <link rel="stylesheet" href="/css/galleryGrid.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
@@ -28,9 +28,8 @@
             <li class="cs-item">
               <span class="cs-date">
                 <span class="material-symbols-outlined icon-default">
-                  <%= itemCategoryName[index].category_name === 
-                  "Indoor Plants" ? "potted_plant" : 
-                  itemCategoryName[index].category_name === 
+                  <%= itemCategoryName[index].category_name === "Indoor Plants"
+                  ? "potted_plant" : itemCategoryName[index].category_name ===
                   "Outdoor Plants" ? "park" : "grass" %>
                 </span>
               </span>
@@ -76,27 +75,25 @@
       </section>
 
       <aside class="img-container wrapper">
-        <div class="container">
-          <img
-            src="/"
-            alt=""
-          />
-          <img
-            src="/"
-            alt=""
-          />
-          <img
-            src="/"
-            alt=""
-          />
-          <img
-            src="/"
-            alt=""
-          />
-          <img
-            src="/"
-            alt=""
-          />
+        <div class="gallery">
+          <div class="gallery__item">
+            <img class="gallery__asset lazyload" src="/" alt="" />
+          </div>
+          <div class="gallery__item">
+            <img class="gallery__asset lazyload" src="/" alt="" />
+          </div>
+          <div class="gallery__item">
+            <img class="gallery__asset lazyload" src="/" alt="" />
+          </div>
+          <div class="gallery__item">
+            <img class="gallery__asset lazyload" src="/" alt="" />
+          </div>
+          <div class="gallery__item">
+            <img class="gallery__asset lazyload" src="/" alt="" />
+          </div>
+          <div class="gallery__item">
+            <img class="gallery__asset lazyload" src="/" alt="" />
+          </div>
         </div>
       </aside>
     </main>
