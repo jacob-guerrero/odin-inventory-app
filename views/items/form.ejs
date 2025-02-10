@@ -4,64 +4,91 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/forms.css" />
     <title><%= item ? "Edit Item" : "Create Item" %></title>
   </head>
 
   <body>
     <%- include("../partials/header") %>
 
-    <main class="main-content">
-      <h2><%= item ? "Edit Item" : "Create Item" %></h2>
-  
-      <form
-        action="<%= item ? '/items/edit/' + item.id : '/items/create' %>"
-        method="POST"
-      >
-        <label for="name">Item Name:</label>
-        <input
-          type="text"
-          name="name"
-          value="<%= item ? item.name : '' %>"
-          required
-        />
-  
-        <label for="categoryId">Category:</label>
-        <select name="categoryId" required>
-          <% categories.forEach(category => { %>
-          <option value="<%= category.id %>"
-              <%= item && item.category_id === category.id ? "selected" : "" %>
-          >
-              <%= category.name %>
-          </option>
-          <% }); %>
-        </select>
-  
-        <label for="price">Price:</label>
-        <input
-          type="number"
-          name="price"
-          step="0.01"
-          value="<%= item ? item.price : '' %>"
-          required
-        />
-  
-        <label for="stockQuantity">Stock Quantity:</label>
-        <input
-          type="number"
-          name="stockQuantity"
-          value="<%= item ? item.stock_quantity : '' %>"
-          required
-        />
-  
-        <label for="description">Description:</label>
-        <textarea name="description">
-          <%= item ? item.description : '' %></textarea
+    <div class="wrapper">
+      <main class="main-content">
+        <h2 class="main-title"><%= item ? "Edit Item" : "Create Item" %></h2>
+    
+        <form
+          action="<%= item ? '/items/edit/' + item.id : '/items/create' %>"
+          method="POST"
+          class="form-container"
         >
-  
-        <button type="submit"><%= item ? "Update" : "Create" %></button>
-        <a href="/items">Cancel</a>
-      </form>
-    </main>
+          <div class="form-item">
+            <label for="name" class="form-name">Item Name:</label>
+            <input
+              type="text"
+              name="name"
+              value="<%= item ? item.name : '' %>"
+              class="form-input"
+              maxlength="20"
+              required
+            />
+          </div>
+    
+          <div class="form-item">
+            <label for="categoryId" class="form-name">Category:</label>
+            <select 
+              name="categoryId" 
+              class="form-input" required>
+              <% categories.forEach(category => { %>
+                <option value="<%= category.id %>"
+                    <%= item && item.category_id === category.id ? "selected" : "" %>
+                >
+                    <%= category.name %>
+                </option>
+              <% }); %>
+            </select>
+          </div>
+    
+          <div class="form-item">
+            <label for="price" class="form-name">Price:</label>
+            <input
+              type="number"
+              name="price"
+              step="0.01"
+              value="<%= item ? item.price : '' %>"
+              class="form-input"
+              min="0"
+              max="999.99"
+              required
+            />
+          </div>
+    
+          <div class="form-item">
+            <label for="stockQuantity" class="form-name">Stock Quantity:</label>
+            <input
+              type="number"
+              name="stockQuantity"
+              value="<%= item ? item.stock_quantity : '' %>"
+              class="form-input"
+              min="0"
+              max="99"
+              required
+            />
+          </div>
+    
+          <div class="form-item">
+            <label for="description" class="form-name">Description:</label>
+            <textarea name="description"
+              class="form-input"
+              maxlength="200"
+            ><%= item ? item.description : '' %></textarea>
+          </div>
+    
+          <div class="btn-action-container">
+            <button type="submit" class="btn"><%= item ? "Update" : "Create" %></button>
+            <a href="/items" class="btn">Cancel</a>
+          </div>
+        </form>
+      </main>
+    </div>
 
     <%- include("../partials/footer") %>
   </body>

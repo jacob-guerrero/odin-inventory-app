@@ -1,3 +1,6 @@
+.img-container.wrapper {
+  overflow: hidden;
+}
 .gallery {
   display: block;
   font-size: 0;

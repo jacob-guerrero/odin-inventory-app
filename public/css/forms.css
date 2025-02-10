@@ -1,0 +1,78 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 6.4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-content {
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2rem 1fr;
+  background-color: var(--text-color);
+
+  padding: clamp(0.6rem, 2.5vw, 1.2rem) clamp(0.8rem, 2.5vw, 1.5rem);
+  gap: clamp(0.8rem, 2.5vw, 1.5rem);
+  border: 2px solid black;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.main-title {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+.form-container {
+  grid-column: 1/2;
+  grid-row: 2/3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  overflow: auto;
+}
+.form-item {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  width: 100%;
+}
+.form-name {
+  font-weight: 700;
+}
+.form-input {
+  width: 100%;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  padding: clamp(0.3rem, 1vw, 0.6rem) clamp(0.4rem, 1vw, 0.8rem);
+
+  border-radius: 8px;
+  border: 1px solid black;
+  background-color: #fefefe;
+}
+
+.btn-action-container {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.btn {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(0.3rem, 1.5vw, 0.6rem) clamp(0.5rem, 1.5vw, 1rem);
+  border: 0;
+  transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid var(--red-color);
+}
+.btn:hover {
+  box-shadow: rgba(180, 180, 180, 0.4) 0px 1px 10px 2px;
+  cursor: pointer;
+}
