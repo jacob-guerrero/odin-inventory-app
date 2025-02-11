@@ -31,6 +31,7 @@
 .btn-add-text {
   font-size: clamp(1rem, 2vw, 1.5rem);
   padding: clamp(0.5rem, 1.5vw, 1rem);
+  text-align: center;
 }
 
 .btn-action-container {
