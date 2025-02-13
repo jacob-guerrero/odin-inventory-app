@@ -1,0 +1,49 @@
+.main-content {
+  min-height: calc(100vh - 6.4rem);
+}
+
+.text-container {
+  justify-self: center;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+
+  max-width: 600px;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  background-color: var(--text-color);
+
+  padding: clamp(0.6rem, 2.5vw, 1.2rem) clamp(0.8rem, 2.5vw, 1.5rem);
+  gap: clamp(0.8rem, 2.5vw, 1.5rem);
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.animation {
+  justify-self: center;
+
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  position: relative;
+
+  box-shadow: 0 10px 10px -3px rgba(0, 0, 0, 0.1),
+    0 4px 4px -2px rgba(0, 0, 0, 0.05);
+
+  animation: graphic 20s infinite;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.indoor {
+  background-image: url(../images/plants/plants-mooncrescent.jpg);
+}
+.outdoor {
+  background-image: url(../images/categories/categories-thanh-luu.jpg);
+}
+.other {
+  background-image: url(../images/categories/categories-stayhereforu.jpg);
+}
