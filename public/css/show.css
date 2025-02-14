@@ -1,7 +1,16 @@
 .main-content {
   min-height: calc(100vh - 6.4rem);
 }
+.main-content.show {
+  grid-template-rows: 1fr;
+}
 
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.8rem, 2.5vw, 1.5rem);
+}
 .text-container {
   justify-self: center;
   font-size: clamp(1.1rem, 2vw, 1.5rem);
@@ -20,13 +29,81 @@
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+.show .text-container {
+  max-width: 500px;
+  width: 100%;
+}
+.category-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.plain-text {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: black;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.cs-container {
+  padding-left: clamp(0.5rem, 1.5vw, 1rem);
+  text-align: left;
+  text-decoration: none;
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.1rem, 1.5vw, 0.6rem);
+}
+
+.aside-image-container {
+  width: 100%;
+  max-width: 600px;
+  height: 60vmin;
+  padding: clamp(0.5rem, 1.5vw, 1rem);
+  background-color: var(--bg-color-light);
+  overflow: hidden;
+  border-radius: clamp(1rem, 2vw, 2rem);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.aside-image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+.aside-image:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  shape-outside: circle(30%);
+  clip-path: circle(30%);
+  background-color: var(--text-color);
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+.icon-default.aside-icon {
+  font-size: clamp(1.5rem, 12vw, 24rem);
+}
 
 .animation {
   justify-self: center;
 
   width: 100%;
   max-width: 600px;
-  height: 100%;
+  height: auto;
   position: relative;
 
   box-shadow: 0 10px 10px -3px rgba(0, 0, 0, 0.1),

@@ -4,37 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/sections.css" />
+    <link rel="stylesheet" href="/css/show.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
     <title><%= category.name %> - Items</title>
   </head>
 
   <body>
     <%- include("../partials/header") %>
 
-    <main class="main-content">
-      <h2><%= category.name %></h2>
-      <p><%= category.description %></p>
+    <main class="main-content show">
+      <section class="section-container">
+        <article class="text-container">
+          <h2 class="category-title"><%= category.name %></h2>
+          <p class="plain-text">
+            <strong>Description:</strong>
+            <%= category.description %>
+          </p>
 
-      <h3>Items in this Category:</h3>
+          <div class="btn-action-container">
+            <a
+              href="/categories/edit/<%= category.id %>"
+              class="btn cs-button-solid"
+              title="Edit Category"
+              ><span class="material-symbols-outlined"> edit_square </span></a
+            >
+            <form
+              action="/categories/delete/<%= category.id %>"
+              method="POST"
+              class="btn-delete-container"
+            >
+              <button
+                type="submit"
+                onclick="return confirm('Are you sure?')"
+                class="btn cs-button-solid btn-delete"
+                title="Delete Category"
+              >
+                <span class="material-symbols-outlined"> delete </span>
+              </button>
+            </form>
+          </div>
 
-      <%if (items.length > 0) { %>
-      <ul>
-        <% items.forEach(item => { %>
-        <li>
-          <a href="/items/<%= item.id %>"><%= item.name %></a>
-        </li>
-        <% }); %>
-      </ul>
+          <hr />
+          <h3>Items in this Category:</h3>
 
-      <% } else { %>
-      <p>No items yet</p>
-      <% } %>
+          <%if (items.length > 0) { %>
+          <ul class="cs-container">
+            <% items.forEach(item => { %>
+            <li class="cs-info">
+              <a href="/items/<%= item.id %>" class="cs-h3"><%= item.name %></a>
+            </li>
+            <% }); %>
+          </ul>
 
-      <a href="/categories/edit/<%= category.id %>">Edit Category</a>
-      <form action="/categories/delete/<%= category.id %>" method="POST">
-        <button type="submit" onclick="return confirm('Are you sure?')">
-          Delete
-        </button>
-      </form>
+          <% } else { %>
+          <p>No items yet</p>
+          <% } %>
+        </article>
+      </section>
+
+      <aside class="aside-image-container">
+        <span class="aside-image">
+          <span class="material-symbols-outlined icon-default aside-icon">
+            potted_plant
+          </span>
+        </span>
+      </aside>
     </main>
 
     <%- include("../partials/footer") %>
