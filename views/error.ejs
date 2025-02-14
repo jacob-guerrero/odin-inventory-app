@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" type="image/png" href="/images/logo-plantory.png" />
     <title>Error</title>
   </head>
   <body>
     <%- include("./partials/header") %>
 
     <main class="main-content">
-      <p><%= message %></p>
+      <section class="error-container">
+        <p class="error-text"><%= message %></p>
+      </section>
     </main>
 
     <%- include("./partials/footer") %>
