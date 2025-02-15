@@ -14,6 +14,11 @@ async function getCategoryDetails(req, res) {
   const { id } = req.params;
   try {
     const category = await db.getCategoryById(id);
+    if (!category) {
+      // If no category is found, throw an error to trigger the catch block
+      throw new Error("Category not found");
+    }
+
     const items = await db.getItemsByCategory(id); // Get all items in this category
     res.render("categories/show", { category, items });
   } catch (err) {
