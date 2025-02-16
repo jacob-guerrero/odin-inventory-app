@@ -16,9 +16,26 @@
   --red-color2-dark: #c0392b;
 }
 
+html,
+body {
+  width: 100%;
+  height: auto;
+}
+/* Background */
+body {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.85)
+    ),
+    url("../images/bg.svg");
+  background-size: 100% auto;
+  background-repeat: repeat;
+  background-position: top left;
+  background-color: var(--bg-color-light);
+}
+
 /* Body Styling */
 body {
-  background-color: #f4f4f4;
   color: #333;
 }
 
