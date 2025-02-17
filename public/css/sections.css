@@ -204,9 +204,6 @@
 }
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-  .cs-card-group {
-    max-width: clamp(44rem, 80vw, 46.8125rem);
-  }
   .cs-item {
     flex-direction: row;
     align-items: center;
