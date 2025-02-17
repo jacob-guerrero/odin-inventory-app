@@ -124,3 +124,13 @@
 .other {
   background-image: url(../images/categories/categories-stayhereforu.jpg);
 }
+
+@media only screen and (max-width: 768px) {
+  .main-content.show {
+    grid-template-rows: max-content 1fr;
+  }
+  .aside-image-container {
+    justify-self: center;
+    margin-top: 2rem;
+  }
+}
