@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="/css/forms.css" />
     <link rel="icon" type="image/x-icon" href="/images/logo-plantory.ico">
     <title><%= category ? "Edit Category" : "Create Category" %></title>
+
+    <script defer>
+      function confirmPassword() {
+        const input = prompt("Please enter the password:");
+
+        if (input && input === "secretpass") {
+          return true;
+        } else {
+          alert("Incorrect password. Action not performed.");
+          return false;
+        }
+      }
+    </script>
+
   </head>
 
   <body>
@@ -41,7 +55,7 @@
           </div>
 
           <div class="btn-action-container">
-            <button type="submit" class="btn"><%= category ? "Update" : "Create" %></button>
+            <button type="submit" class="btn" onclick="return confirmPassword()"><%= category ? "Update" : "Create" %></button>
             <a href="/categories" class="btn">Cancel</a>
           </div>
         </form>

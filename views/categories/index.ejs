@@ -12,6 +12,20 @@
     />
     <link rel="icon" type="image/x-icon" href="/images/logo-plantory.ico">
     <title>Categories</title>
+
+    <script defer>
+      function confirmPassword() {
+        const input = prompt("Please enter the password:");
+
+        if (input && input === "secretpass") {
+          return true;
+        } else {
+          alert("Incorrect password. Action not performed.");
+          return false;
+        }
+      }
+    </script>
+
   </head>
 
   <body>
@@ -62,7 +76,7 @@
                 >
                   <button
                     type="submit"
-                    onclick="return confirm('Are you sure?')"
+                    onclick="return confirmPassword()"
                     class="cs-button-solid btn-delete"
                     title="Delete"
                   >
