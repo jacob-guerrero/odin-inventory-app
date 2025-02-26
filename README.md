@@ -24,7 +24,7 @@ This is an Inventory Management App for a Plant Nursery, built using Node.js, Ex
 
 ## 📂 Folder Structure
 ```
-/plant-nursery-app
+/odin-inventory-app
 │── /controllers   # Handles application logic
 │── /db            # Database connection & queries
 │── /public        # Static assets (CSS, images)
@@ -40,8 +40,8 @@ This is an Inventory Management App for a Plant Nursery, built using Node.js, Ex
 
 1. Clone the Repository
 ```bash
-git clone https://github.com/jacob-guerrero/odin-intenfory-app.git
-cd odin-intenvory-app
+git clone https://github.com/jacob-guerrero/odin-inventory-app.git
+cd odin-inventory-app
 ```
 
 2. Install Dependencies
